@@ -36,7 +36,9 @@ nav {
 
 ul {
   list-style-type: none;
-  padding: 0;
+  columns: 3;
+  padding: 1rem 0.5rem;
+  font-weight: 500;
 }
 
 .container {
