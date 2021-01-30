@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <p v-if="$fetchState.pending">Fetching planets ...</p>
     <p v-else-if="$fetchState.error">Error while fetching planets</p>
     <ul v-else>
@@ -28,3 +28,9 @@ export default {
   },
 }
 </script>
+
+<style>
+.wrapper {
+  padding: 1rem 0;
+}
+</style>

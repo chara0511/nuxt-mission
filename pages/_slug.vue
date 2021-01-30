@@ -1,14 +1,16 @@
 <template>
   <div class="container">
     <div>
-      <img :src="planet.image" />
+      <img :src="planet.image" class="rounded" />
       <h1 class="title">{{ planet.title }}</h1>
+      <p>{{ planet.description }}</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  transition: 'bounce',
   async asyncData({ params }) {
     const planet = await fetch(
       `https://api.nuxtjs.dev/planets/${params.slug}`
@@ -35,7 +37,7 @@ export default {
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: `https://jamstack-explorers-nuxt-mission/${this.$route?.params.slug}`,
+          href: `https://jamstack-explorers-nuxt-mission/${this.$route.params.slug}`,
         },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       ],
@@ -53,19 +55,8 @@ export default {
   color: #35495e;
   letter-spacing: 1px;
 }
-</style>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-img {
+.rounded {
   height: 120px;
   width: auto;
   object-fit: cover;
